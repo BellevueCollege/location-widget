@@ -1,6 +1,9 @@
 # Generally Igore
 .htaccess
 *.log
+*.iws
+workspace.xml
+tasks.xml
 
 # ==================
 # Windows detritus
