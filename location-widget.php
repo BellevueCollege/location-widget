@@ -107,24 +107,9 @@ $buildingpic_url = WP_CONTENT_URL . '/themes/mayflower/inc/mayflower-location/bu
    //
 	?>
 	<div>
-<?php 
-   // Check if location text is set
-   if( $location_text ) {
-      echo '<div>'.$location_text.'</div>';
-   }
-
-   // Check if hours title is set
-   if ( $hours_title ) {
-      echo $before_title . $hours_title . $after_title;
-   }
-
-   // Check if hours text is set
-   if( $hours_text ) {
-      echo '<div>'.$hours_text.'</div>';
-   }
-?>
-
-<?php
+    
+    <?php
+	//Insert Image
    // Get $select value
 	if ( $select == 'Generic Campus Pic' ) { ?>
 		<img src="<?php echo $buildingpic_url . "campus-pic1.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
@@ -179,6 +164,26 @@ $buildingpic_url = WP_CONTENT_URL . '/themes/mayflower/inc/mayflower-location/bu
 	<?php
 		} else if ( $select == 'Student Services' ) { ?>
 		<img src="<?php echo $buildingpic_url . "campus-pic-student-services.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+    
+    
+<?php 
+   // Check if location text is set
+   if( $location_text ) {
+      echo '<div>'.$location_text.'</div>';
+   }
+
+   // Check if hours title is set
+   if ( $hours_title ) {
+      echo $before_title . $hours_title . $after_title;
+   }
+
+   // Check if hours text is set
+   if( $hours_text ) {
+      echo '<div>'.$hours_text.'</div>';
+   }
+?>
+
+
 
 
 	<?php
