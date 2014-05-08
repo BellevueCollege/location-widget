@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name:  Mayflower Location Widget
+Plugin Name:  Bellevue College Location Widget
 Plugin URI:   http://www.bellevuecollege.edu/
 Description:  Department/Unit Location Widget.
 Version:      0.1
