@@ -30,7 +30,7 @@ if( $instance) {
      $hours_text = esc_attr($instance['hours_text']);
      $select = esc_attr($instance['select']);
 } else {
-     $location_widget_title = '';
+     $location_widget_title = 'Our Location';
      $location_text = '';
      $hours_title = '';
      $hours_text = '';
@@ -44,7 +44,7 @@ if( $instance) {
 </p>
 
 <p>
-<label for="<?php echo $this->get_field_id('location_text'); ?>"><?php _e('Location Description:', 'wp_widget_plugin'); ?></label>
+<label for="<?php echo $this->get_field_id('location_text'); ?>"><?php _e('Office Location:', 'wp_widget_plugin'); ?></label>
 <input id="<?php echo $this->get_field_id('location_text'); ?>" class="widefat" name="<?php echo $this->get_field_name('location_text'); ?>" type="text" value="<?php echo $location_text; ?>" />
 </p>
 
@@ -101,8 +101,8 @@ $buildingpic_url = WP_CONTENT_URL . '/themes/mayflower/inc/mayflower-location/bu
 
    // Check if location title is set
    if ( $location_widget_title ) {
-       echo  "<h3>".$location_widget_title."</h3>" ;
-     // echo $before_title . $location_widget_title . $after_title;
+       //echo  "<h3>".$location_widget_title."</h3>" ;
+       echo $before_title . $location_widget_title . $after_title;
    }
    //
 	?>
