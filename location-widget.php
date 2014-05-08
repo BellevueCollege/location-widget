@@ -98,17 +98,16 @@ $buildingpic_url = WP_CONTENT_URL . '/themes/mayflower/inc/mayflower-location/bu
 
    echo $before_widget;
    // Display the widget
-   ?>
-	<div class="row">
-		<div class="span3">
-<?php
 
    // Check if location title is set
    if ( $location_widget_title ) {
        echo  "<h3>".$location_widget_title."</h3>" ;
      // echo $before_title . $location_widget_title . $after_title;
    }
-
+   //
+	?>
+	<div>
+<?php 
    // Check if location text is set
    if( $location_text ) {
       echo '<div>'.$location_text.'</div>';
@@ -124,8 +123,7 @@ $buildingpic_url = WP_CONTENT_URL . '/themes/mayflower/inc/mayflower-location/bu
       echo '<div>'.$hours_text.'</div>';
    }
 ?>
-</div><!-- span3 -->
-<div class="span3">
+
 <?php
    // Get $select value
 	if ( $select == 'Generic Campus Pic' ) { ?>
@@ -189,8 +187,7 @@ $buildingpic_url = WP_CONTENT_URL . '/themes/mayflower/inc/mayflower-location/bu
 		echo 'dolorem option is Selected';
 	}
 ?>
-	</div><!-- span3 -->
-</div><!-- row -->
+</div>
 
 <?php
    echo $after_widget;
