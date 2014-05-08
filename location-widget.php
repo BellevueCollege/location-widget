@@ -24,13 +24,13 @@ function form($instance) {
 
 // Check values
 if( $instance) {
-     $location_title = esc_attr($instance['location_title']);
+     $location_widget_title = esc_attr($instance['location_widget_title']);
      $location_text = esc_attr($instance['location_text']);
      $hours_title = esc_attr($instance['hours_title']);
      $hours_text = esc_attr($instance['hours_text']);
      $select = esc_attr($instance['select']);
 } else {
-     $location_title = '';
+     $location_widget_title = '';
      $location_text = '';
      $hours_title = '';
      $hours_text = '';
@@ -39,8 +39,8 @@ if( $instance) {
 ?>
 
 <p>
-<label for="<?php echo $this->get_field_id('location_title'); ?>"><?php _e('Location Title', 'wp_widget_plugin'); ?></label>
-<input id="<?php echo $this->get_field_id('location_title'); ?>" class="widefat" name="<?php echo $this->get_field_name('location_title'); ?>" type="text" value="<?php echo $location_title; ?>" />
+<label for="<?php echo $this->get_field_id('location_widget_title'); ?>"><?php _e('Location Widget Title:', 'wp_widget_plugin'); ?></label>
+<input id="<?php echo $this->get_field_id('location_widget_title'); ?>" class="widefat" name="<?php echo $this->get_field_name('location_widget_title'); ?>" type="text" value="<?php echo $location_widget_title; ?>" />
 </p>
 
 <p>
@@ -77,7 +77,7 @@ echo '<option value="' . $option . '" id="' . $option . '"', $select == $option 
 function update($new_instance, $old_instance) {
       $instance = $old_instance;
       // Fields
-      $instance['location_title'] = strip_tags($new_instance['location_title']);
+      $instance['location_widget_title'] = strip_tags($new_instance['location_widget_title']);
       $instance['location_text'] = strip_tags($new_instance['location_text']);
       $instance['hours_title'] = strip_tags($new_instance['hours_title']);
       $instance['hours_text'] = strip_tags($new_instance['hours_text']);
@@ -88,7 +88,7 @@ function update($new_instance, $old_instance) {
 function widget($args, $instance) {
    extract( $args );
    // these are the widget options
-   $location_title = apply_filters('widget_title', $instance['location_title']);
+   $location_widget_title = apply_filters('widget_title', $instance['location_widget_title']);
    $location_text = $instance['location_text'];
    $hours_title = apply_filters('widget_title', $instance['hours_title']);
    $hours_text = $instance['hours_text'];
@@ -104,9 +104,9 @@ $buildingpic_url = WP_CONTENT_URL . '/themes/mayflower/inc/mayflower-location/bu
 <?php
 
    // Check if location title is set
-   if ( $location_title ) {
-       echo  "<h3>".$location_title."</h3>" ;
-     // echo $before_title . $location_title . $after_title;
+   if ( $location_widget_title ) {
+       echo  "<h3>".$location_widget_title."</h3>" ;
+     // echo $before_title . $location_widget_title . $after_title;
    }
 
    // Check if location text is set
