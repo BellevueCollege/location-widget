@@ -43,6 +43,19 @@ if( $instance) {
 <input id="<?php echo $this->get_field_id('location_widget_title'); ?>" class="widefat" name="<?php echo $this->get_field_name('location_widget_title'); ?>" type="text" value="<?php echo $location_widget_title; ?>" />
 </p>
 
+
+<p>
+<label for="<?php echo $this->get_field_id('select'); ?>"><?php _e('Select', 'wp_widget_plugin'); ?></label>
+<select name="<?php echo $this->get_field_name('select'); ?>" id="<?php echo $this->get_field_id('select'); ?>" class="widefat">
+<?php
+$options = array("Generic Campus Pic", "A Building", "C Building", "D Building", "Early Childhood Center", "Eastern", "Gym", "IBIT", "ISP", "K Building", "KBCS", "L Building", "M Building", "N Building", "N216", "Planetarium", "R Building", "S Building", "Student Services");
+foreach ($options as $option) {
+echo '<option value="' . $option . '" id="' . $option . '"', $select == $option ? ' selected="selected"' : '', '>', $option, '</option>';
+}
+?>
+</select>
+</p>
+
 <p>
 <label for="<?php echo $this->get_field_id('location_text'); ?>"><?php _e('Office Location:', 'wp_widget_plugin'); ?></label>
 <input id="<?php echo $this->get_field_id('location_text'); ?>" class="widefat" name="<?php echo $this->get_field_name('location_text'); ?>" type="text" value="<?php echo $location_text; ?>" />
@@ -59,17 +72,7 @@ if( $instance) {
 </p>
 
 
-<p>
-<label for="<?php echo $this->get_field_id('select'); ?>"><?php _e('Select', 'wp_widget_plugin'); ?></label>
-<select name="<?php echo $this->get_field_name('select'); ?>" id="<?php echo $this->get_field_id('select'); ?>" class="widefat">
-<?php
-$options = array("Generic Campus Pic", "A Building", "C Building", "D Building", "Early Childhood Center", "Eastern", "Gym", "IBIT", "ISP", "K Building", "KBCS", "L Building", "M Building", "N Building", "N216", "Planetarium", "R Building", "S Building", "Student Services");
-foreach ($options as $option) {
-echo '<option value="' . $option . '" id="' . $option . '"', $select == $option ? ' selected="selected"' : '', '>', $option, '</option>';
-}
-?>
-</select>
-</p>
+
 <?php
 }
 
@@ -106,7 +109,7 @@ $buildingpic_url = WP_CONTENT_URL . '/themes/mayflower/inc/mayflower-location/bu
    }
    //
 	?>
-	<div>
+	<div> 
     
     <?php
 	//Insert Image
@@ -165,7 +168,13 @@ $buildingpic_url = WP_CONTENT_URL . '/themes/mayflower/inc/mayflower-location/bu
 		} else if ( $select == 'Student Services' ) { ?>
 		<img src="<?php echo $buildingpic_url . "campus-pic-student-services.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
     
-    
+    <?php
+		echo 'ipsum option is Selected';
+		} else {
+		echo 'dolorem option is Selected';
+	}
+?>
+
 <?php 
    // Check if location text is set
    if( $location_text ) {
@@ -186,13 +195,7 @@ $buildingpic_url = WP_CONTENT_URL . '/themes/mayflower/inc/mayflower-location/bu
 
 
 
-	<?php
-		echo 'ipsum option is Selected';
-		} else {
-		echo 'dolorem option is Selected';
-	}
-?>
-</div>
+	</div>
 
 <?php
    echo $after_widget;
