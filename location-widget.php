@@ -32,7 +32,7 @@ if( $instance) {
 } else {
      $location_widget_title = 'Our Location';
      $location_text = '';
-     $hours_title = '';
+     $hours_title = 'Hours:';
      $hours_text = '';
      $select = '';
 }
@@ -67,7 +67,7 @@ echo '<option value="' . $option . '" id="' . $option . '"', $select == $option 
 </p>
 
 <p>
-<label for="<?php echo $this->get_field_id('hours_text'); ?>"><?php _e('Hours Description:', 'wp_widget_plugin'); ?></label>
+<label for="<?php echo $this->get_field_id('hours_text'); ?>"><?php _e('Office Hours:', 'wp_widget_plugin'); ?></label>
 <input id="<?php echo $this->get_field_id('hours_text'); ?>" class="widefat" name="<?php echo $this->get_field_name('hours_text'); ?>" type="text" value="<?php echo $hours_text; ?>" />
 </p>
 
@@ -174,26 +174,26 @@ $buildingpic_url = plugins_url( 'buildings/' , __FILE__ );
 		echo 'dolorem option is Selected';
 	}
 ?>
-
+<div style="margin: 0 2em">
 <?php 
    // Check if location text is set
    if( $location_text ) {
-      echo '<div>'.$location_text.'</div>';
+      echo '<p>'.$location_text.'</p>';
    }
-
-   // Check if hours title is set
-   if ( $hours_title ) {
-      echo $before_title . $hours_title . $after_title;
+   ?><p>
+   <?php
+   // Check if hours text is set
+   if( $hours_text ) {
+      echo $hours_title.' ';
    }
 
    // Check if hours text is set
    if( $hours_text ) {
-      echo '<div>'.$hours_text.'</div>';
+      echo $hours_text;
    }
 ?>
-
-
-
+</p>
+</div>
 
 	</div>
 
