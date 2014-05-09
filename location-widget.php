@@ -24,11 +24,11 @@ function form($instance) {
 
 // Check values
 if( $instance) {
-     $location_widget_title = esc_attr($instance['location_widget_title']);
-     $location_text = esc_attr($instance['location_text']);
-     $hours_title = esc_attr($instance['hours_title']);
-     $hours_text = esc_attr($instance['hours_text']);
-     $select = esc_attr($instance['select']);
+     $location_widget_title = isset($instance['location_widget_title']) ? esc_attr($instance['location_widget_title']) : "";
+     $location_text = isset($instance['location_text']) ? esc_attr($instance['location_text']) : "";
+     $hours_title = isset($instance['hours_title']) ? esc_attr($instance['hours_title']):"";
+     $hours_text = isset($instance['hours_text']) ? esc_attr($instance['hours_text']) : "";
+     $select = isset($instance['select']) ? esc_attr($instance['select']) : "";
 } else {
      $location_widget_title = 'Our Location';
      $location_text = '';
@@ -107,7 +107,7 @@ $buildingpic_url = plugins_url( 'buildings/' , __FILE__ );
        //echo  "<h3>".$location_widget_title."</h3>" ;
        echo $before_title . $location_widget_title . $after_title;
    }
-   //
+
 	?>
     
     <?php
@@ -168,9 +168,9 @@ $buildingpic_url = plugins_url( 'buildings/' , __FILE__ );
 		<img src="<?php echo $buildingpic_url . "campus-pic-student-services.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
     
     <?php
-		echo 'ipsum option is Selected';
+		//echo 'ipsum option is Selected';
 		} else {
-		echo 'dolorem option is Selected';
+		//echo 'dolorem option is Selected';
 	}
 ?>
 <div style="margin: 0 2em">
