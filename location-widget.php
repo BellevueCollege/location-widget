@@ -3,7 +3,7 @@
 Plugin Name:  Bellevue College Location Widget
 Plugin URI:   http://www.bellevuecollege.edu/
 Description:  Department/Unit Location Widget.
-Version:      0.1
+Version:      0.1.0.1
 Author:       BC DevCom
 Author URI:   http://www.bellevuecollege.edu/
 */
@@ -109,7 +109,6 @@ $buildingpic_url = plugins_url( 'buildings/' , __FILE__ );
    }
    //
 	?>
-	<div> 
     
     <?php
 	//Insert Image
@@ -194,8 +193,6 @@ $buildingpic_url = plugins_url( 'buildings/' , __FILE__ );
 ?>
 </p>
 </div>
-
-	</div>
 
 <?php
    echo $after_widget;
