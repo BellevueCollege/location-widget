@@ -97,7 +97,7 @@ function widget($args, $instance) {
    $hours_text = $instance['hours_text'];
    $select = $instance['select'];
 
-$buildingpic_url = WP_CONTENT_URL . '/themes/mayflower/inc/mayflower-location/buildings/';
+$buildingpic_url = plugins_url( 'buildings/' , __FILE__ );
 
    echo $before_widget;
    // Display the widget
