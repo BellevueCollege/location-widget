@@ -8,18 +8,24 @@ Author:       BC DevCom
 Author URI:   http://www.bellevuecollege.edu/
 */
 
+class Bc_Location_Widget extends WP_Widget {
+
+//	Construct Widget	//
+function __construct() {
+	parent::__construct(
+		// Base ID of your widget
+		'bc_location_widget',
+ 
+		// Widget name will appear in UI
+		__('Office Location', 'wp_widget_plugin'),
+ 
+		// Widget description
+		array( 'description' => __( 'Show your Bellevue College location and office hours!', 'wp_widget_plugin' ), )
+	);
+}
 
 
-
-
-class mayflower_location_plugin extends WP_Widget {
-
-// constructor
-    function mayflower_location_plugin() {
-        parent::WP_Widget(false, $name = __('Locations', 'wp_widget_plugin') );
-    }
-
-// widget form creation
+// widget form creation	//
 function form($instance) {
 
 // Check values
@@ -196,9 +202,9 @@ $buildingpic_url = plugins_url( 'buildings/' , __FILE__ );
 
 <?php
    echo $after_widget;
-}} // mayflower_location_plugin Class
+}} // bc_location_widget Class
 
 // register widget
-add_action( 'widgets_init', create_function( '', 'register_widget( "mayflower_location_plugin" );' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget( "bc_location_widget" );' ) );
 
 ?>
