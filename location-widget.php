@@ -3,7 +3,7 @@
 Plugin Name:  Bellevue College Location Widget
 Plugin URI:   http://www.bellevuecollege.edu/
 Description:  Department/Unit Location Widget.
-Version:      0.1.0.1
+Version:      0.1.0.2
 Author:       BC DevCom
 Author URI:   http://www.bellevuecollege.edu/
 */
@@ -51,7 +51,7 @@ if( $instance) {
 
 
 <p>
-<label for="<?php echo $this->get_field_id('select'); ?>"><?php _e('Select', 'wp_widget_plugin'); ?></label>
+<label for="<?php echo $this->get_field_id('select'); ?>"><?php _e('Select Building Image', 'wp_widget_plugin'); ?></label>
 <select name="<?php echo $this->get_field_name('select'); ?>" id="<?php echo $this->get_field_id('select'); ?>" class="widefat">
 <?php
 $options = array("Generic Campus Pic", "A Building", "C Building", "D Building", "Early Childhood Center", "Eastern", "Gym", "IBIT", "ISP", "K Building", "KBCS", "L Building", "M Building", "N Building", "N216", "Planetarium", "R Building", "S Building", "Student Services");
@@ -157,6 +157,9 @@ $buildingpic_url = plugins_url( 'buildings/' , __FILE__ );
 	<?php
 		} else if ( $select == 'M Building' ) { ?>
 		<img src="<?php echo $buildingpic_url . "campus-pic-m-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+	<?php
+		} else if ( $select == 'N Building' ) { ?>
+		<img src="<?php echo $buildingpic_url . "campus-pic-n-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'N216' ) { ?>
 		<img src="<?php echo $buildingpic_url . "campus-pic-n216.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
