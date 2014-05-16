@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name:  Bellevue College Location Widget
-Plugin URI:   http://www.bellevuecollege.edu/
+Plugin URI:   https://github.com/BellevueCollege/location-widget/
 Description:  Department/Unit Location Widget.
-Version:      0.1.0.2
-Author:       BC DevCom
+Version:      1
+Author:       Bellevue College DevCom
 Author URI:   http://www.bellevuecollege.edu/
 */
 
