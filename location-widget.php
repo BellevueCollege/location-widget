@@ -31,6 +31,7 @@ function form($instance) {
 // Check values
 if( $instance) {
      $location_widget_title = isset($instance['location_widget_title']) ? esc_attr($instance['location_widget_title']) : "";
+    $location_title = isset($instance['location_title']) ? esc_attr($instance['location_title']) : "";
      $location_text = isset($instance['location_text']) ? esc_attr($instance['location_text']) : "";
      $hours_title = isset($instance['hours_title']) ? esc_attr($instance['hours_title']):"";
      $hours_text = isset($instance['hours_text']) ? esc_attr($instance['hours_text']) : "";
@@ -61,6 +62,10 @@ echo '<option value="' . $option . '" id="' . $option . '"', $select == $option 
 ?>
 </select>
 </p>
+<p>
+    <label for="<?php echo $this->get_field_id('location_title'); ?>"><?php _e('Location Title:', 'wp_widget_plugin'); ?></label>
+    <input id="<?php echo $this->get_field_id('location_title'); ?>" class="widefat" name="<?php echo $this->get_field_name('location_title'); ?>" type="text" value="<?php echo $location_title; ?>" />
+</p>
 
 <p>
 <label for="<?php echo $this->get_field_id('location_text'); ?>"><?php _e('Office Location:', 'wp_widget_plugin'); ?></label>
@@ -87,6 +92,7 @@ function update($new_instance, $old_instance) {
       $instance = $old_instance;
       // Fields
       $instance['location_widget_title'] = strip_tags($new_instance['location_widget_title']);
+      $instance['location_title'] = strip_tags($new_instance['location_title']);
       $instance['location_text'] = strip_tags($new_instance['location_text']);
       $instance['hours_title'] = strip_tags($new_instance['hours_title']);
       $instance['hours_text'] = strip_tags($new_instance['hours_text']);
@@ -98,6 +104,7 @@ function widget($args, $instance) {
    extract( $args );
    // these are the widget options
    $location_widget_title = apply_filters('widget_title', $instance['location_widget_title']);
+   $location_title = $instance['location_title'];
    $location_text = $instance['location_text'];
    $hours_title = apply_filters('widget_title', $instance['hours_title']);
    $hours_text = $instance['hours_text'];
@@ -183,15 +190,19 @@ $buildingpic_url = plugins_url( 'buildings/' , __FILE__ );
 	}
 ?>
 <div style="margin: 0 2em">
-<?php 
+    <p>
+<?php
+if( $location_title ) {
+    echo $location_title.' ';
+}
    // Check if location text is set
    if( $location_text ) {
-      echo '<p>'.$location_text.'</p>';
+      echo $location_text;
    }
-   ?><p>
+   ?></p><p>
    <?php
    // Check if hours text is set
-   if( $hours_text ) {
+   if( $hours_title ) {
       echo $hours_title.' ';
    }
 
