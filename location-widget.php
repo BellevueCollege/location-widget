@@ -3,7 +3,7 @@
 Plugin Name:  Bellevue College Location Widget
 Plugin URI:   https://github.com/BellevueCollege/location-widget/
 Description:  Department/Unit Location Widget.
-Version:      1.0.0.1
+Version:      1
 Author:       Bellevue College DevCom
 Author URI:   http://www.bellevuecollege.edu/
 */
@@ -31,7 +31,6 @@ function form($instance) {
 // Check values
 if( $instance) {
      $location_widget_title = isset($instance['location_widget_title']) ? esc_attr($instance['location_widget_title']) : "";
-    $location_title = isset($instance['location_title']) ? esc_attr($instance['location_title']) : "";
      $location_text = isset($instance['location_text']) ? esc_attr($instance['location_text']) : "";
      $hours_title = isset($instance['hours_title']) ? esc_attr($instance['hours_title']):"";
      $hours_text = isset($instance['hours_text']) ? esc_attr($instance['hours_text']) : "";
@@ -62,10 +61,6 @@ echo '<option value="' . $option . '" id="' . $option . '"', $select == $option 
 ?>
 </select>
 </p>
-<p>
-    <label for="<?php echo $this->get_field_id('location_title'); ?>"><?php _e('Location Title:', 'wp_widget_plugin'); ?></label>
-    <input id="<?php echo $this->get_field_id('location_title'); ?>" class="widefat" name="<?php echo $this->get_field_name('location_title'); ?>" type="text" value="<?php echo $location_title; ?>" />
-</p>
 
 <p>
 <label for="<?php echo $this->get_field_id('location_text'); ?>"><?php _e('Office Location:', 'wp_widget_plugin'); ?></label>
@@ -92,7 +87,6 @@ function update($new_instance, $old_instance) {
       $instance = $old_instance;
       // Fields
       $instance['location_widget_title'] = strip_tags($new_instance['location_widget_title']);
-      $instance['location_title'] = strip_tags($new_instance['location_title']);
       $instance['location_text'] = strip_tags($new_instance['location_text']);
       $instance['hours_title'] = strip_tags($new_instance['hours_title']);
       $instance['hours_text'] = strip_tags($new_instance['hours_text']);
@@ -104,7 +98,6 @@ function widget($args, $instance) {
    extract( $args );
    // these are the widget options
    $location_widget_title = apply_filters('widget_title', $instance['location_widget_title']);
-   $location_title = $instance['location_title'];
    $location_text = $instance['location_text'];
    $hours_title = apply_filters('widget_title', $instance['hours_title']);
    $hours_text = $instance['hours_text'];
@@ -127,61 +120,61 @@ $buildingpic_url = plugins_url( 'buildings/' , __FILE__ );
 	//Insert Image
    // Get $select value
 	if ( $select == 'Generic Campus Pic' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic1.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic1.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'A Building' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-a-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-a-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'C Building' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-c-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-c-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'D Building' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-d-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-d-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'Early Childhood Center' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-e-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-e-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'Eastern' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-eastern.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-eastern.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'Gym' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-gym.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-gym.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'IBIT' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-ibit.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-ibit.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'ISP' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-isp.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-isp.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'K Building' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-k-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-k-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'KBCS' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-kbcs.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-kbcs.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'L Building' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-l-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-l-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'M Building' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-m-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-m-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'N Building' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-n-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-n-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'N216' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-n216.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-n216.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'Planetarium' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-planetarium.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-planetarium.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'R Building' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-r-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-r-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'S Building' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-s-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-s-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 	<?php
 		} else if ( $select == 'Student Services' ) { ?>
-		<img src="<?php echo $buildingpic_url . "campus-pic-student-services.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-student-services.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
     
     <?php
 		//echo 'ipsum option is Selected';
@@ -190,19 +183,15 @@ $buildingpic_url = plugins_url( 'buildings/' , __FILE__ );
 	}
 ?>
 <div style="margin: 0 2em">
-    <p>
-<?php
-if( $location_title ) {
-    echo $location_title.' ';
-}
+<?php 
    // Check if location text is set
    if( $location_text ) {
-      echo $location_text;
+      echo '<p>'.$location_text.'</p>';
    }
-   ?></p><p>
+   ?><p>
    <?php
    // Check if hours text is set
-   if( $hours_title ) {
+   if( $hours_text ) {
       echo $hours_title.' ';
    }
 
