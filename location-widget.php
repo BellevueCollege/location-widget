@@ -195,13 +195,13 @@ class Bc_Location_Widget extends WP_Widget {
 			} else {
 			// nothing happens!
 		} ?>
-		<div style="margin: 0 2em">
+		<ul id="location-widget-text">
 		<?php
 			// Check if location text is set
 			if ( $location_text ) {
-				echo '<p>'.$location_text.'</p>';
+				echo '<li style="margin-left:2em; margin-bottom: .5em">'.$location_text.'</li>';
 			}
-			?><p><?php
+			?><li style="margin-left:2em"><?php
 				// Check if hours text is set
 				if( $hours_text ) {
 					echo $hours_title.' ';
@@ -211,8 +211,8 @@ class Bc_Location_Widget extends WP_Widget {
 				if( $hours_text ) {
 					echo $hours_text;
 				}
-			?></p>
-		</div>
+			?></li>
+		</ul>
 
 		<?php echo $after_widget;
 	}
