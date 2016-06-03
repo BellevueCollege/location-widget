@@ -3,7 +3,7 @@
 Plugin Name:  Bellevue College Location Widget
 Plugin URI:   https://github.com/BellevueCollege/location-widget/
 Description:  Department/Unit Location Widget.
-Version:      1.2
+Version:      1.2.0.1
 Author:       Bellevue College Information Technology Services
 Author URI:   http://www.bellevuecollege.edu/
 GitHub Plugin URI: bellevuecollege/location-widget
@@ -56,6 +56,7 @@ class Bc_Location_Widget extends WP_Widget {
 					"C Building",
 					"C Building Door",
 					"D Building",
+					"Faculty Commons",
 					"Early Childhood Center",
 					"Eastern",
 					"Gym",
@@ -148,6 +149,9 @@ class Bc_Location_Widget extends WP_Widget {
 		<?php
 			} else if ( $select == 'Eastern' ) { ?>
 			<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-eastern.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<?php
+			} else if ( $select == 'Faculty Commons' ) { ?>
+			<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-d-bldg-faculty-commons.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 		<?php
 			} else if ( $select == 'Gym' ) { ?>
 			<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-gym.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
