@@ -3,7 +3,7 @@
 Plugin Name:  Bellevue College Location Widget
 Plugin URI:   https://github.com/BellevueCollege/location-widget/
 Description:  Department/Unit Location Widget.
-Version:      1.2
+Version:      1.3
 Author:       Bellevue College Information Technology Services
 Author URI:   http://www.bellevuecollege.edu/
 GitHub Plugin URI: bellevuecollege/location-widget
@@ -56,6 +56,7 @@ class Bc_Location_Widget extends WP_Widget {
 					"C Building",
 					"C Building Door",
 					"D Building",
+					"Faculty Commons",
 					"Early Childhood Center",
 					"Eastern",
 					"Gym",
@@ -149,6 +150,9 @@ class Bc_Location_Widget extends WP_Widget {
 			} else if ( $select == 'Eastern' ) { ?>
 			<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-eastern.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 		<?php
+			} else if ( $select == 'Faculty Commons' ) { ?>
+			<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-d-bldg-faculty-commons.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<?php
 			} else if ( $select == 'Gym' ) { ?>
 			<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-gym.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 		<?php
@@ -191,13 +195,13 @@ class Bc_Location_Widget extends WP_Widget {
 			} else {
 			// nothing happens!
 		} ?>
-		<div style="margin: 0 2em">
+		<ul id="location-widget-text">
 		<?php
 			// Check if location text is set
 			if ( $location_text ) {
-				echo '<p>'.$location_text.'</p>';
+				echo '<li style="margin-left:2em; margin-bottom: .5em">'.$location_text.'</li>';
 			}
-			?><p><?php
+			?><li style="margin-left:2em"><?php
 				// Check if hours text is set
 				if( $hours_text ) {
 					echo $hours_title.' ';
@@ -207,8 +211,8 @@ class Bc_Location_Widget extends WP_Widget {
 				if( $hours_text ) {
 					echo $hours_text;
 				}
-			?></p>
-		</div>
+			?></li>
+		</ul>
 
 		<?php echo $after_widget;
 	}
