@@ -53,6 +53,7 @@ class Bc_Location_Widget extends WP_Widget {
 				<?php $options = array(
 					"Generic Campus Pic",
 					"A Building",
+					"B Building Back",
 					"C Building",
 					"C Building Door",
 					"D Building",
@@ -134,6 +135,9 @@ class Bc_Location_Widget extends WP_Widget {
 		<?php
 			} else if ( $select == 'A Building' ) { ?>
 			<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-a-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+		<?php
+			} else if ( $select == 'B Building Back' ) { ?>
+			<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-b-bldg-back.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 		<?php
 			} else if ( $select == 'C Building' ) { ?>
 			<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-c-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
