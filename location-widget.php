@@ -3,7 +3,7 @@
 Plugin Name:  Bellevue College Location Widget
 Plugin URI:   https://github.com/BellevueCollege/location-widget/
 Description:  Department/Unit Location Widget.
-Version:      1.3
+Version:      1.3.0.2
 Author:       Bellevue College Information Technology Services
 Author URI:   http://www.bellevuecollege.edu/
 GitHub Plugin URI: bellevuecollege/location-widget
@@ -13,6 +13,10 @@ class Bc_Location_Widget extends WP_Widget {
 
 	//	Construct Widget	//
 	function __construct() {
+
+		// Add Widget scripts
+		add_action('admin_enqueue_scripts', array($this, 'scripts'));
+
 		parent::__construct(
 			// Base ID of your widget
 			'bc_location_widget',
@@ -25,18 +29,28 @@ class Bc_Location_Widget extends WP_Widget {
 		);
 	}
 
+	// Scripts for media library uploader //
+	public function scripts()
+	{
+	   wp_enqueue_script( 'media-upload' );
+	   wp_enqueue_media();
+	   wp_enqueue_script('upload-media', plugins_url( 'upload-media.js', __FILE__ ) , array('jquery'));
+	}
+
 	// widget form creation	//
 	function form( $instance ) {
 		// Check values
 		if ( $instance) {
 			$location_widget_title = isset( $instance['location_widget_title'] ) ? esc_attr( $instance['location_widget_title'] ) : "";
 			$location_text = isset( $instance['location_text'] ) ? esc_attr( $instance['location_text'] ) : "";
+			$image = ! empty( $instance['image'] ) ? $instance['image'] : '';
 			$hours_title = isset($instance['hours_title']) ? esc_attr($instance['hours_title']):"";
 			$hours_text = isset($instance['hours_text']) ? esc_attr($instance['hours_text']) : "";
 			$select = isset($instance['select']) ? esc_attr($instance['select']) : "";
 		} else {
 			$location_widget_title = 'Our Location';
 			$location_text = '';
+			$image = '';
 			$hours_title = 'Hours:';
 			$hours_text = '';
 			$select = '';
@@ -51,6 +65,7 @@ class Bc_Location_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id('select'); ?>"><?php _e('Select Building Image', 'wp_widget_plugin'); ?></label>
 			<select name="<?php echo $this->get_field_name('select'); ?>" id="<?php echo $this->get_field_id('select'); ?>" class="widefat">
 				<?php $options = array(
+					"",
 					"Generic Campus Pic",
 					"A Building",
 					"B Building Back",
@@ -80,6 +95,12 @@ class Bc_Location_Widget extends WP_Widget {
 		</p>
 
 		<p>
+		   <label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php _e( 'Upload An Image:' ); ?></label>
+		   <input class="widefat" id="<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>" type="text" value="<?php echo esc_url( $image ); ?>" />
+		   <button class="upload_image_button button button-primary">Upload Image</button>
+		</p>
+
+		<p>
 			<label for="<?php echo $this->get_field_id('location_text'); ?>"><?php _e('Office Location:', 'wp_widget_plugin'); ?></label>
 			<input id="<?php echo $this->get_field_id('location_text'); ?>" class="widefat" name="<?php echo $this->get_field_name('location_text'); ?>" type="text" value="<?php echo $location_text; ?>" />
 		</p>
@@ -98,12 +119,15 @@ class Bc_Location_Widget extends WP_Widget {
 	// update widget
 	function update($new_instance, $old_instance) {
 		$instance = $old_instance;
+		
 		// Fields
 		$instance['location_widget_title'] = strip_tags( $new_instance['location_widget_title'] );
 		$instance['location_text'] = strip_tags( $new_instance['location_text'] );
+		$instance['image'] = ( ! empty( $new_instance['image'] ) ) ? $new_instance['image'] : '';
 		$instance['hours_title'] = strip_tags( $new_instance['hours_title'] );
 		$instance['hours_text'] = strip_tags( $new_instance['hours_text'] );
 		$instance['select'] = strip_tags( $new_instance['select'] );
+		
 		return $instance;
 	}
 	// display widget
@@ -112,6 +136,7 @@ class Bc_Location_Widget extends WP_Widget {
 		// these are the widget options
 		$location_widget_title = apply_filters( 'widget_title', $instance['location_widget_title'] );
 		$location_text = $instance['location_text'];
+		$image = ! empty( $instance['image'] ) ? $instance['image'] : '';
 		$hours_title = apply_filters( 'widget_title', $instance['hours_title'] );
 		$hours_text = $instance['hours_text'];
 		$select = $instance['select'];
@@ -125,12 +150,15 @@ class Bc_Location_Widget extends WP_Widget {
 		if ( $location_widget_title ) {
 			//echo  "<h3>".$location_widget_title."</h3>" ;
 			echo $before_title . $location_widget_title . $after_title;
-		} ?>
+		} 
+		?>
 
 		<?php
 		//Insert Image
 		// Get $select value
-		if ( $select == 'Generic Campus Pic' ) { ?>
+		if ( $select == '' ) { 
+			// nothing here, blank option for no image!
+			} else if ( $select == 'Generic Campus Pic' ) { ?>
 			<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic1.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 		<?php
 			} else if ( $select == 'A Building' ) { ?>
@@ -199,6 +227,21 @@ class Bc_Location_Widget extends WP_Widget {
 			} else {
 			// nothing happens!
 		} ?>
+
+		<?php 
+		ob_start();
+		echo $args['before_widget'];
+		?>
+		
+		<?php if($image): ?>
+			<img class="img-responsive" src="<?php echo esc_url($image); ?>" alt="">
+		<?php endif; ?>
+		
+		<?php
+		echo $args['after_widget'];
+		ob_end_flush();
+		?>
+
 		<ul id="location-widget-text">
 		<?php
 			// Check if location text is set
