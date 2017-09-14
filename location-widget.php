@@ -3,7 +3,7 @@
 Plugin Name:  Bellevue College Location Widget
 Plugin URI:   https://github.com/BellevueCollege/location-widget/
 Description:  Department/Unit Location Widget.
-Version:      1.3.0.2
+Version:      1.3.0.3
 Author:       Bellevue College Information Technology Services
 Author URI:   http://www.bellevuecollege.edu/
 GitHub Plugin URI: bellevuecollege/location-widget
@@ -65,7 +65,7 @@ class Bc_Location_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id('select'); ?>"><?php _e('Select Building Image', 'wp_widget_plugin'); ?></label>
 			<select name="<?php echo $this->get_field_name('select'); ?>" id="<?php echo $this->get_field_id('select'); ?>" class="widefat">
 				<?php $options = array(
-					"",
+					"None",
 					"Generic Campus Pic",
 					"A Building",
 					"B Building Back",
@@ -134,12 +134,12 @@ class Bc_Location_Widget extends WP_Widget {
 	function widget( $args, $instance ) {
 		extract( $args );
 		// these are the widget options
-		$location_widget_title = apply_filters( 'widget_title', $instance['location_widget_title'] );
-		$location_text = $instance['location_text'];
+		$location_widget_title = ! empty( $instance['location_widget_title'] ) ? $instance['location_widget_title'] : '';
+		$location_text = ! empty( $instance['location_text'] ) ? $instance['location_text'] : '';
 		$image = ! empty( $instance['image'] ) ? $instance['image'] : '';
-		$hours_title = apply_filters( 'widget_title', $instance['hours_title'] );
-		$hours_text = $instance['hours_text'];
-		$select = $instance['select'];
+		$hours_title = ! empty( $instance['hours_title'] ) ? $instance['hours_title'] : '';
+		$hours_text = ! empty( $instance['hours_text'] ) ? $instance['hours_text'] : '';
+		$select = ! empty( $instance['select'] ) ? $instance['select'] : '';
 
 		$buildingpic_url = plugins_url( 'buildings/' , __FILE__ );
 
@@ -156,7 +156,7 @@ class Bc_Location_Widget extends WP_Widget {
 		<?php
 		//Insert Image
 		// Get $select value
-		if ( $select == '' ) { 
+		if ( $select == 'None' ) { 
 			// nothing here, blank option for no image!
 			} else if ( $select == 'Generic Campus Pic' ) { ?>
 			<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic1.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
