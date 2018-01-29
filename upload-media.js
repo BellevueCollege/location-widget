@@ -1,5 +1,9 @@
+/* Based on https://vedmant.com/using-wordpress-media-library-in-widgets-options/ */
 jQuery(document).ready(function ($) {
-    
+      $( document ).on( "click", ".clear_image_button", function( e ) {
+            e.preventDefault();
+            $(this).siblings( 'input' ).val( "" ).change();
+      } );
       $(document).on("click", ".upload_image_button", function (e) {
          e.preventDefault();
          var $button = $(this);
@@ -21,7 +25,7 @@ jQuery(document).ready(function ($) {
     
             var attachment = file_frame.state().get('selection').first().toJSON();
     
-            $button.siblings('input').val(attachment.url).change(); //.change() saves the changed image URL
+            $button.siblings('input').val(attachment.id).change(); //.change() saves the changed image URL
     
          });
     
