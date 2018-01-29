@@ -3,8 +3,8 @@ location-widget
 
 Contributors: Bellevue College
 Tags: Office location, location
-Tested for: 3.9
-Stable tag: 1
+Tested for: 4.9
+Stable tag: 1.4
 License:
 License URI:
 
@@ -27,3 +27,8 @@ Office Hours
 == Changelog ==
 = v1 =
 * Initial version
+
+= v1.4 =
+* Allows users to upload custom images
+* Bug fix: empty bullet no longer displays when no content is provided
+* Bug fix: notices prevented when image is not set
