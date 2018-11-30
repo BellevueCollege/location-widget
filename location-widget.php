@@ -3,7 +3,7 @@
 Plugin Name:  Bellevue College Location Widget
 Plugin URI:   https://github.com/BellevueCollege/location-widget/
 Description:  Department/Unit Location Widget.
-Version:      1.4
+Version:      1.4.1
 Author:       Bellevue College Information Technology Services
 Author URI:   http://www.bellevuecollege.edu/
 GitHub Plugin URI: bellevuecollege/location-widget
@@ -279,4 +279,6 @@ class Bc_Location_Widget extends WP_Widget {
 } // bc_location_widget Class
 
 // register widget
-add_action( 'widgets_init', create_function( '', 'register_widget( "bc_location_widget" );' ) );
+add_action( 'widgets_init', function(){
+	register_widget( 'bc_location_widget' ); 
+} );

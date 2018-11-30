@@ -32,3 +32,6 @@ Office Hours
 * Allows users to upload custom images
 * Bug fix: empty bullet no longer displays when no content is provided
 * Bug fix: notices prevented when image is not set
+
+= v1.4.1 =
+* PHP 7.2 Support
