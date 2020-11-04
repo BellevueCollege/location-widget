@@ -3,7 +3,7 @@
 Plugin Name:  Bellevue College Location Widget
 Plugin URI:   https://github.com/BellevueCollege/location-widget/
 Description:  Department/Unit Location Widget.
-Version:      1.4.1
+Version:      1.5
 Author:       Bellevue College Information Technology Services
 Author URI:   http://www.bellevuecollege.edu/
 GitHub Plugin URI: bellevuecollege/location-widget
@@ -169,75 +169,75 @@ class Bc_Location_Widget extends WP_Widget {
 		//Insert Image
 		// Get $select value
 		if ( $image ){
-			echo wp_get_attachment_image( $image, 'location-thumbnail', false, array( 'class' => 'img-responsive' ) );
+			echo wp_get_attachment_image( $image, 'location-thumbnail', false, array( 'class' => 'img-responsive mw-100' ) );
 		} else {
 			if ( $select == 'None' ) { 
 				// nothing here, blank option for no image!
 				} else if ( $select == 'Generic Campus Pic' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic1.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic1.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'A Building' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-a-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-a-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'B Building Back' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-b-bldg-back.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-b-bldg-back.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'C Building' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-c-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-c-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'C Building Door' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-c-bldg-door.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-c-bldg-door.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'D Building' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-d-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-d-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'Early Childhood Center' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-e-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-e-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'Eastern' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-eastern.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-eastern.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'Faculty Commons' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-d-bldg-faculty-commons.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-d-bldg-faculty-commons.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'Gym' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-gym.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-gym.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'IBIT' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-ibit.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-ibit.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'ISP' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-isp.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-isp.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'K Building' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-k-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-k-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'KBCS' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-kbcs.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-kbcs.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'L Building' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-l-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-l-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'M Building' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-m-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-m-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'N Building' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-n-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-n-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'N216' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-n216.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-n216.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'Planetarium' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-planetarium.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-planetarium.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'R Building' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-r-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-r-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'S Building' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-s-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-s-bldg.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php
 				} else if ( $select == 'Student Services' ) { ?>
-				<img class="img-responsive" src="<?php echo $buildingpic_url . "campus-pic-student-services.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
+				<img class="img-responsive mw-100" src="<?php echo $buildingpic_url . "campus-pic-student-services.jpg";  ?>" title="<?php echo $instance['select']; ?>" alt="<?php echo $instance['select']; ?>" />
 			<?php } else {
 				// nothing happens!
 			}
@@ -257,21 +257,24 @@ class Bc_Location_Widget extends WP_Widget {
 		<?php
 			// Check if location text is set
 			if ( $location_text ) {
-				echo '<li style="margin-left:2em; margin-bottom: .5em">'.$location_text.'</li>';
+				echo '<li>'.$location_text.'</li>';
 			}
-			if ( $hours_text && $hours_title ) {
-				?><li style="margin-left:2em"><?php
-					// Check if hours text is set
-					if ( $hours_text ) {
-						echo $hours_title.' ';
-					}
+			if ( $hours_text && $hours_title ) { ?>
+			
+				<li>
+					<?php
+						// Check if hours text is set
+						if ( $hours_text ) {
+							echo $hours_title.' ';
+						}
 
-					// Check if hours text is set
-					if ( $hours_text ) {
-						echo $hours_text;
-					}
-				?></li><?php
-			} ?>
+						// Check if hours text is set
+						if ( $hours_text ) {
+							echo $hours_text;
+						}
+					?>
+				</li>
+			<?php } ?>
 		</ul>
 
 		<?php echo $after_widget;
