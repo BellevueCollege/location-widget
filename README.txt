@@ -3,7 +3,7 @@ location-widget
 
 Contributors: Bellevue College
 Tags: Office location, location
-Tested for: 4.9
+Tested for: 5.5
 Stable tag: 1.4
 License:
 License URI:
@@ -35,3 +35,6 @@ Office Hours
 
 = v1.4.1 =
 * PHP 7.2 Support
+
+= v1.5 =
+* Mayflower G4 Support
